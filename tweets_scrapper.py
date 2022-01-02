@@ -27,7 +27,7 @@ def get_tweet_text(tweet):
     return tweet_text
 
 def get_this_page_tweets(soup):
-    tweets_list = list()
+    tweets_list = []
     tweets = soup.find_all("li", {"data-item-type": "tweet"})
     for tweet in tweets:
         tweet_data = None
@@ -46,7 +46,7 @@ def get_this_page_tweets(soup):
 
 
 def get_tweets_data(username, soup):
-    tweets_list = list()
+    tweets_list = []
     tweets_list.extend(get_this_page_tweets(soup))
 
     next_pointer = soup.find("div", {"class": "stream-container"})["data-min-position"]
@@ -82,8 +82,7 @@ def get_tweets_data(username, soup):
 def dump_data(username, tweets):
     filename = username+"_twitter.json"
     print("\nDumping data in file " + filename)
-    data = dict()
-    data["tweets"] = tweets
+    data = {'tweets': tweets}
     with open(filename, 'w') as fh:
         fh.write(json.dumps(data))
 

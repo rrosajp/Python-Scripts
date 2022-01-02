@@ -4,6 +4,7 @@ Author - Anurag Rana
 Read more on - https://www.pythoncircle.com
 """
 
+
 from wordcloud import WordCloud
 
 # image configurations
@@ -18,7 +19,7 @@ with open("stopwords.txt", "r") as f:
 with open("/tmp/sample_text.txt", "r") as f:
     words = f.read().split()
 
-data = dict()
+data = {}
 
 for word in words:
     word = word.lower()

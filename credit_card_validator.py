@@ -32,8 +32,7 @@ def sum_digits(digit):
     if digit < 10:
         return digit
     else:
-        sum = (digit % 10) + (digit // 10)
-        return sum
+        return (digit % 10) + (digit // 10)
 
 
 def validate(cc_num):
@@ -42,7 +41,7 @@ def validate(cc_num):
     # convert to integer list
     cc_num = [int(x) for x in cc_num]
     # double every second digit
-    doubled_second_digit_list = list()
+    doubled_second_digit_list = []
     digits = list(enumerate(cc_num, start=1))
     for index, digit in digits:
         if index % 2 == 0:

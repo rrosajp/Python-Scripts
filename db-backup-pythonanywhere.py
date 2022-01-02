@@ -43,7 +43,7 @@ length = len(FILE_PREFIX)
 # deleting files older than DAYS_TO_KEEP_BACKUP days
 for f in list_files:
     filename = f.split(".")[0]
-    if "zip" == f.split(".")[1]:
+    if f.split(".")[1] == "zip":
         suffix = filename[length:]
         if suffix < back_date:
             print("Deleting file : "+f)

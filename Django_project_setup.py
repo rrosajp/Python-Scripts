@@ -59,10 +59,8 @@ def create_gitignore():
 
 
 def update_settings():
-    f = open(PROJECT_NAME+"/settings.py", "r")
-    contents = f.readlines()
-    f.close()
-
+    with open(PROJECT_NAME+"/settings.py", "r") as f:
+        contents = f.readlines()
     index = 0
 
     for l in contents:
@@ -75,11 +73,9 @@ def update_settings():
 
     contents.insert(index+1, msg)
 
-    f = open(PROJECT_NAME+"/settings.py", "w")
-    contents = "".join(contents)
-    f.write(contents)
-    f.close()
-
+    with open(PROJECT_NAME+"/settings.py", "w") as f:
+        contents = "".join(contents)
+        f.write(contents)
     # add static and media root and urls
     with open(PROJECT_NAME + "/settings.py", "a+") as fh:
         fh.write("STATIC_ROOT = os.path.join(BASE_DIR, \"static/\")\n")
@@ -206,13 +202,13 @@ def create_app():
 def start():
     action = sys.argv[1]
 
-    if "ip" == action:
+    if action == "ip":
         # ip - initialize project
         init_project()
-    elif "ca" == action:
+    elif action == "ca":
         # ca - create app
         create_app()
-    elif "help" == action:
+    elif action == "help":
         # help - show usage
         usage()
 
