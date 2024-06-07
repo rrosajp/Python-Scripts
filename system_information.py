@@ -29,7 +29,7 @@ print("System: " + platform.system())
 
 # distribution
 dist = platform.dist()
-dist = " ".join(x for x in dist)
+dist = " ".join(dist)
 print("Distribution: " + dist)
 
 # Load

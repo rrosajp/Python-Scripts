@@ -59,15 +59,12 @@ y = -100
 # create tree trunk
 create_rectangle(oogway, "red", -15, y-60, 30, 60)
 
-# create tree
-width = 240
 oogway.speed(10)
-while width > 10:
-    width = width - 10
-    height = 10
+height = 10
+for width in range(230, 0, -10):
     x = 0 - width/2
     create_rectangle(oogway, "green", x, y, width, height)
-    y = y + height
+    y += height
 
 # create a star a top of tree
 oogway.speed(1)
@@ -76,7 +73,7 @@ oogway.color('yellow')
 oogway.goto(-20, y+10)
 oogway.begin_fill()
 oogway.pendown()
-for i in range(5):
+for _ in range(5):
     oogway.forward(40)
     oogway.right(144)
 oogway.end_fill()
@@ -93,7 +90,7 @@ create_circle(oogway, 220, 180, 60, BG_COLOR)
 oogway.speed(10)
 number_of_stars = randint(20,30)
 # print(number_of_stars)
-for _ in range(0,number_of_stars):
+for _ in range(number_of_stars):
     x_star = randint(-(screen.window_width()//2),screen.window_width()//2)
     y_star = randint(tree_height, screen.window_height()//2)
     size = randint(5,20)
@@ -102,7 +99,7 @@ for _ in range(0,number_of_stars):
     oogway.goto(x_star, y_star)
     oogway.begin_fill()
     oogway.pendown()
-    for i in range(5):
+    for _ in range(5):
         oogway.forward(size)
         oogway.right(144)
     oogway.end_fill()

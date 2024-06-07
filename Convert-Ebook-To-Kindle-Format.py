@@ -11,9 +11,8 @@ import subprocess
 # we are just changing the extension. azw3 here.
 def get_final_filename(f):
     f = f.split(".")
-    filename = ".".join(f[0:-1])
-    processed_file_name = filename+".azw3"
-    return processed_file_name
+    filename = ".".join(f[:-1])
+    return filename+".azw3"
 
 
 # return file extension. pdf or epub or mobi

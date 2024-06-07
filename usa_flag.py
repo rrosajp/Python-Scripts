@@ -54,13 +54,13 @@ def draw_fill_rectangle(x, y, height, width, color):
     oogway.end_fill()
     oogway.penup()
 
-def draw_star(x,y,color,length) :
+def draw_star(x,y,color,length):
     oogway.goto(x,y)
     oogway.setheading(0)
     oogway.pendown()
     oogway.begin_fill()
     oogway.color(color)
-    for turn in range(0,5) :
+    for _ in range(5):
         oogway.forward(length)
         oogway.right(144)
         oogway.forward(length)
@@ -74,8 +74,8 @@ def draw_stripes():
     x = start_x
     y = start_y
     # we need to draw total 13 stripes, 7 red and 6 white
-    # so we first create, 6 red and 6 white stripes alternatively    
-    for stripe in range(0,6):
+    # so we first create, 6 red and 6 white stripes alternatively
+    for _ in range(6):
         for color in ["red", "white"]:
             draw_fill_rectangle(x, y, stripe_height, stripe_width, color)
             # decrease value of y by stripe_height
@@ -101,13 +101,13 @@ def draw_six_stars_rows():
     gap_between_lines = stripe_height + 6
     y = 112
     # create 5 rows of stars
-    for row in range(0,5) :
+    for row in range(5):
         x = -222
         # create 6 stars in each row
-        for star in range (0,6) :
+        for _ in range(6):
             draw_star(x, y, 'white', star_size)
-            x = x + gap_between_stars
-        y = y - gap_between_lines
+            x += gap_between_stars
+        y -= gap_between_lines
 
 
 def draw_five_stars_rows():
@@ -115,13 +115,13 @@ def draw_five_stars_rows():
     gap_between_lines = stripe_height + 6
     y = 100
     # create 4 rows of stars
-    for row in range(0,4) :
+    for row in range(4):
         x = -206
         # create 5 stars in each row
-        for star in range (0,5) :
+        for _ in range(5):
             draw_star(x, y, 'white', star_size)
-            x = x + gap_between_stars
-        y = y - gap_between_lines
+            x += gap_between_stars
+        y -= gap_between_lines
 
 # start after 5 seconds.
 time.sleep(5)

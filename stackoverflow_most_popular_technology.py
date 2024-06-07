@@ -15,8 +15,7 @@ tag_count_dict = {}
 
 def get_soup_from_link(link):
     html_text = requests.get(link).text
-    soup = BeautifulSoup(html_text, 'html.parser')
-    return soup
+    return BeautifulSoup(html_text, 'html.parser')
 
 
 def tag_crawler(question_url):    
